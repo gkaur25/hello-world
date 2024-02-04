@@ -1,0 +1,63 @@
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(220);
+
+  var x = 0;
+  var y = 0;
+
+  for (let i = 0; i <= 7; i++) {
+    for (let j = 0; j <= 8; j++) {
+      if (i % 2 == 1) {
+        if (j % 2 == 0) {
+          rect(x,y,50,50);
+          fill("white");
+          x += 50;
+        } else {
+          rect(x,y,50,50);
+          fill("black");
+          x += 50;
+        }
+      } else {
+        if (j % 2 == 0) {
+          rect(x,y,50,50);
+          fill("black");
+          x += 50;
+        } else {
+          rect(x,y,50,50);
+          fill("white");
+          x += 50;
+        }
+      }
+    }
+    y += 50;
+    x = 0;
+  }
+
+  var a = 25;
+  var b = 25;
+
+  for (let i = 0; i <= 3; i++) {
+    for (let j = 0; j <= 7; j++) {
+      if (i < 2){
+        strokeWeight(2);
+        fill("red");
+        ellipse(a,b,35);
+        a += 50;
+      } else {
+        strokeWeight(1);
+        fill("green");
+        ellipse(a,b,35);
+        a += 50;
+      }
+    }
+    a = 25;
+    if (i == 0 || i == 2 || x == 3){
+      b += 50;
+    } else if (i == 1) {
+      b += 250;
+    }
+  }
+}
