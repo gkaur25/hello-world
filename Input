@@ -1,0 +1,28 @@
+var input1, input2;
+var output;
+var button;
+
+function setup() {
+  createCanvas(0, 0);
+  createP('noun');
+  input1 = createInput('');
+  createP('noun');
+  input2 = createInput('');
+  button = createButton('Tell me a story!');
+      button.mousePressed(tellMeAStory);
+      output = createP('');
+
+}
+
+function draw() {
+  background(220);
+}
+function mousePressed() {
+}
+
+function tellMeAStory() {
+  var word1 = input1.value();
+  var word2 = input2.value();
+
+  output.html("I wish I could see " + word1 + " and " + word2 + " at school tomorrow.");
+}
