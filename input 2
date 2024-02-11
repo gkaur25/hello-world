@@ -1,0 +1,19 @@
+function setup() {
+  createCanvas(500, 500);
+}
+
+function draw() {
+background('pink');
+
+fill(255);
+bezier(178,242,244,200,255,200,330,242);  
+bezier(178,242,209,294,296,292,330,242);
+strokeWeight(3);
+circle(250,250,50);
+
+let x1 = map(mouseX,0,width,235,260);
+let y1 = map(mouseY,0,height,235,260);
+ 
+fill(0);
+ellipse(x1,y1,20);
+}
