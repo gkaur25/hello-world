@@ -1,0 +1,11 @@
+function setup() {
+  createCanvas(400, 400);
+  strokeWeight(3);
+}
+function draw() {
+  background(220);
+  let spacing = width / 11;
+  for (let i = 2; i < 12; i++) {
+    line(i * spacing, 10, mouseX, mouseY);
+  }
+}
