@@ -1,0 +1,106 @@
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(220);
+  noStroke();
+  text('Hold Click To Overview', 100, 350);
+  // Clouds
+  let cloudColor = color(153);
+  fill(cloudColor);
+  drawCloud(132, 82);
+  drawCloud(80, 115);
+  drawCloud(210, 82);
+  drawCloud(280, 100);
+  drawCloud(90, 185);
+  drawCloud(150, 210);
+  drawCloud(220, 220);
+  drawCloud(170, 150);
+  drawCloud(260, 150);
+  drawCloud(290, 165);
+  drawCloud(270, 210);
+  // Lightning
+  if (mouseIsPressed) {
+    fill(200, 0, 0, 160);
+    drawLightning(300, 82);
+    drawLightning(180, 82);
+    drawLightning(220, 82);
+    drawLightning(260, 82);
+    drawLightning(260, 120);
+    drawLightning(300, 120);
+    fill(15, 27, 15, 100);
+    drawLightning(80, 205);
+    drawLightning(120, 205);
+    drawLightning(160, 205);
+    drawLightning(200, 205);
+    drawLightning(80, 165);
+    drawLightning(120, 165);
+     fill(255)
+  rect(179,74,3.5,13)
+  fill(255)
+  rect(219,74,3.5,13)
+  fill(255)
+  rect(299,74,3.5,13)
+  fill(255)
+  rect(259,74,3.5,13)
+  fill(255)
+  rect(259,114,3.5,13)
+  fill(255)
+  rect(299,114,3.5,13)
+  fill(255)
+  rect(175,78.5,11,4)
+  fill(255)
+  rect(215,78.5,11,4)
+  fill(255)
+  rect(295,78.5,11,4)
+  fill(255)
+  rect(255,78.5,11,4)
+  fill(255)
+  rect(255,118,11,4)
+  fill(255)
+  rect(295.5,118,11,4)
+  fill(255)
+  rect(75,162.5,11,4)
+  fill(255)
+  rect(114.5,162.5,11,4)
+  fill(255)
+  rect(75,202,11,4)
+  fill(255)
+  rect(114.5,202,11,4)
+  fill(255)
+  rect(155,202,11,4)
+  fill(255)
+  rect(194,202,11,4)
+  fill(255)
+    noStroke();
+    fill('darkblue');
+    rect(140, 145, 60, 20);
+    fill('darkblue');
+    triangle(220, 120, 190, 150, 155, 145);
+    fill('darkblue');
+    textSize(16);
+    fill(0);
+    text('Lightning', 250, 310);
+    fill(0);
+    text('Cloud', 50, 300);
+    stroke(0);
+    strokeWeight(2);
+    line(100, 295, 200, 250);
+    stroke(0);
+    strokeWeight(2);
+    line(245, 295, 190, 160);
+  }
+}
+
+function drawCloud(x, y) {
+  ellipse(x, y, 100, 100);
+}
+
+function drawLightning(x, y) {
+  ellipse(x, y, 30, 30);
+}
+
+function drawRect(x, y) {
+  rect(x, y, 3.5, 13);
+}
