@@ -1,0 +1,23 @@
+let content = 'I LOVE DOGS';
+let yStart = 0; //starting position of the text wall
+let customFont; //variable for custom font
+
+function preload() {
+  customFont = loadFont('SpaceMono-Regular.ttf'); 
+}
+
+function setup() {
+  createCanvas(400, 400);
+  textFont(customFont);
+  textAlign(CENTER, CENTER); 
+  textSize(30); 
+}
+
+function draw() {
+  background(255);
+  for (let y = yStart; y < height; y += 28) { 
+    fill(255, y / 2 + 55, 100); 
+    text(content, width / 2, y); 
+  }
+  yStart--; 
+}
