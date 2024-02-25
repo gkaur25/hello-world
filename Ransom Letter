@@ -1,0 +1,41 @@
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(255);
+  textSize(70);
+  fill("black");
+  textFont("Times New Roman");
+  text("I",50,100);
+  
+  
+  textSize(90);
+  textFont("Impact");
+  fill("navy");
+  text("L",50,180);
+  textFont("Letter Gothic");
+  fill("pink");
+  text("O",100,180);
+  textFont("Courier New");
+  fill("lime");
+  text("V",150,180);
+  fill("magenta");
+  textFont("Oswald");
+  text("E",200,180);
+  
+  textSize(50);
+  textFont("Lobster");
+  fill("yellow");
+  text("D",50,230);
+  textFont("Comic Sans MS");
+  fill("purple");
+  text("O",90,230);
+  textFont("Lucida Grande");
+  fill("aqua");
+  text("G",130,230);
+  textFont("Optima");
+  fill("orange");
+  text("S",170,230);
+  
+}
