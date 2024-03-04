@@ -1,0 +1,76 @@
+function setup() {
+  createCanvas(400, 400)
+}
+
+function draw() {
+  
+  background(255)
+
+  translate(50, 50)
+  scale(50)
+  
+  board.show()
+  
+}
+
+function hexagon(x, y, r) {
+  translate(x, y)
+  beginShape()
+  vertex(-1/sqrt(3)  , 0   )
+  vertex(-0.5/sqrt(3), 0.5 )
+  vertex(0.5/sqrt(3) , 0.5 )
+  vertex(1/sqrt(3)   , 0   )
+  vertex(0.5/sqrt(3) , -0.5)
+  vertex(-0.5/sqrt(3), -0.5)
+  endShape(CLOSE)
+  translate(-x, -y)
+}
+
+class Board {
+  
+  constructor() {
+    
+    this.rows = 6
+    
+    this.tiles = Array(7).fill(null).map((col, x)=>Array(9).fill(null).map((ele, y)=>new Tile(x, y)))
+    
+  }
+  
+  show() {
+    noFill()
+    stroke(0)
+    strokeWeight(0.03)
+    this.tiles.forEach(function(col, x) {
+      col.forEach(function(tile, y) {
+        if (2*y >= x && 2*(y-this.rows) < x) {
+          tile.show()
+        }
+      }, this)
+    }, this)
+  }
+  
+}
+
+class Tile {
+  
+  constructor(x, y) {
+    this.team = 0
+    this.x = x
+    this.y = y
+  }
+  
+  show() {
+    if (this.team == 0) {
+      fill(0, 255, 0)
+    } else {
+      fill(255, 0, 0)
+    }
+    hexagon(this.x*sqrt(3)/2, this.y-this.x/2, 1)
+  }
+  
+}
+
+let board = new Board()
+
+board.tiles[1][2].team = 1
+
