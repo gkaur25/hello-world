@@ -1,0 +1,33 @@
+const slices = 7;
+const size = 150;
+let randomWeights = {};
+
+function setup() {
+  createCanvas(800,800);
+  for (let i = 0; i < slices * 2; i++) {
+    randomWeights[i] = random(700, 1000);
+  }
+}
+
+function draw() {
+  background(255);
+  translate(width / 2, height / 2);
+  rotate(millis() / 500);
+  scale(map(sin(millis() / 600), 0, 1, 1, 1));
+
+  beginShape();
+  for (let i = 0; i < slices; i++) {
+    let angle = map(i, 0, slices, 0, TWO_PI);
+    let xOffset = map(cos(millis() / randomWeights[i]), 0, 1, -30, 30);
+    let yOffset = map(sin(millis() / randomWeights[i + slices]), 0, 1, -20, 20);
+    curveVertex(sin(angle) * size + xOffset, cos(angle) * size + yOffset);
+  }
+  endShape(CLOSE);
+  
+}
+
+function mouseMoved() {
+  for (let i = 0; i < slices * 2; i++) {
+    randomWeights[i] = map(dist(mouseX, mouseY, width / 2, height / 2), 0, 300, 700, 1000);
+  }
+}
