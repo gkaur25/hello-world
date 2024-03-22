@@ -1,0 +1,55 @@
+let messageData = {
+  "Person A": 30,
+  "Person B": 25,
+  "Person C": 15,
+  "Topic X": 20,
+  "Topic Y": 18,
+  "Topic Z": 12,
+};
+
+function setup() {
+  createCanvas(800, 400);
+  drawIsotype();
+}
+
+function drawIsotype() {
+  background(240);
+  let xPos = 50;
+  let yPos = 50;
+  let symbolSize = 50;
+
+  for (let category in messageData) {
+    let messageCount = messageData[category];
+
+    if (category.startsWith("Person")) {
+      drawPersonSymbol(xPos, yPos, symbolSize, messageCount);
+    } else if (category.startsWith("Topic")) {
+      drawTopicSymbol(xPos, yPos, symbolSize, messageCount);
+    }
+
+    textAlign(CENTER);
+    text(category, xPos + symbolSize / 2, yPos + symbolSize + 20);
+
+    xPos += symbolSize + 50;
+    if (xPos + symbolSize > width - 50) {
+      xPos = 50;
+      yPos += symbolSize + 100;
+    }
+  }
+}
+
+function drawPersonSymbol(x, y, size, count) {
+  fill(0, 128, 255);
+  ellipse(x + size / 2, y + size / 2, size);
+  fill(255);
+  textAlign(CENTER);
+  text(count, x + size / 2, y + size / 2);
+}
+
+function drawTopicSymbol(x, y, size, count) {
+  fill(255, 128, 0);
+  rect(x, y, size, size);
+  fill(255);
+  textAlign(CENTER);
+  text(count, x + size / 2, y + size / 2);
+}
