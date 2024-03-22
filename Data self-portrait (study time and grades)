@@ -1,0 +1,44 @@
+let data = [
+  { course: "Math", grade: 90, studyTime: 5 },
+  { course: "Science", grade: 85, studyTime: 4 },
+  { course: "History", grade: 92, studyTime: 6 },
+  { course: "English", grade: 88, studyTime: 4.5 },
+];
+
+function setup() {
+  createCanvas(800, 400);
+  drawScatterPlot();
+}
+
+function drawScatterPlot() {
+  background(240);
+
+  // Draw axes
+  stroke(0);
+  line(50, height - 50, width - 50, height - 50);
+  line(50, 50, 50, height - 50);
+
+  // Draw data points
+  for (let i = 0; i < data.length; i++) {
+    let x = map(data[i].studyTime, 0, 10, 50, width - 50);
+    let y = map(data[i].grade, 80, 100, height - 50, 50);
+
+    fill(0, 128, 255);
+    ellipse(x, y, 10, 10);
+
+    // Display course name next to data point
+    textAlign(LEFT);
+    text(data[i].course, x + 10, y);
+  }
+
+  // Label axes
+  textAlign(CENTER);
+  text("Study Time (hours)", width / 2, height - 10);
+  text("Grade", 20, height / 2);
+}
+
+function mousePressed() {
+  // Example interaction: filter data points based on mouse click
+  let filteredData = data.filter(point => point.studyTime >= 4 && point.studyTime <= 6);
+  console.log(filteredData);
+}
