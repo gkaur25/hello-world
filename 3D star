@@ -1,0 +1,33 @@
+function setup() {
+  createCanvas(710, 400, WEBGL);
+
+  describe(
+    '3d primitive object, a star');
+}
+
+function draw() {
+  background(250);
+
+  push();
+  translate(0, -100, 0);
+  rotateZ(frameCount * 0.01);
+  rotateX(frameCount * 0.01);
+  rotateY(frameCount * 0.01);
+  drawStar(50, 100, 5);
+  pop();
+}
+
+// Function to draw a 3D star
+function drawStar(innerRadius, outerRadius, numPoints) {
+  let angleIncrement = TWO_PI / numPoints;
+  beginShape();
+  for (let i = 0; i < numPoints * 2; i++) {
+    let radius = i % 2 === 0 ? outerRadius : innerRadius;
+    let currentAngle = i * angleIncrement;
+    let x = cos(currentAngle) * radius;
+    let y = sin(currentAngle) * radius;
+    let z = 0;
+    vertex(x, y, z);
+  }
+  endShape(CLOSE);
+}
